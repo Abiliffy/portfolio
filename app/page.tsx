@@ -101,7 +101,7 @@ export default function HomePage() {
           <a href="#music">
             <NavButton icon={<Music className="h-4 w-4" />} label="Music" createStar={createStar} />
           </a>
-          <a href="https://github.com/LiThIuMss" target="_blank">
+          <a href="https://github.com/Abiliffy" target="_blank">
             <NavButton icon={<Github className="h-4 w-4" />} label="GitHub" createStar={createStar} />
           </a>
         </div>
