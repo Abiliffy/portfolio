@@ -86,9 +86,6 @@ export default function HomePage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center tracking-wide text-shadow-monochrome-dark">
           ✧ My profile ✧
         </h1>
-        <p className="text-base sm:text-lg text-gray-700 opacity-80 text-center max-w-md">
-          ♡ 見習いエンジニアLv.2 ♡
-        </p>
       </header>
 
       {/* Navigation */}
@@ -119,10 +116,7 @@ export default function HomePage() {
               </h2>
               <div className="space-y-4 text-gray-800">
                 <p>
-                  当プロフィールを訪問いただきありがとうございます！りちうむです。
-                </p>
-                <p>
-                  プロフィールは以下からご覧いただけます！^ ̳ᴗ ·̫ ᴗ ̳^  backend
+                  backend 🍤
                 </p>
                 <div className="pt-4 border-t border-gray-400">
                   <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 text-shadow-monochrome-dark-sm">
@@ -132,29 +126,29 @@ export default function HomePage() {
                     <SocialLink
                       icon={<Github className="h-5 w-5" />}
                       title="GitHub"
-                      username="@LiThIuMss"
-                      url="https://github.com/LiThIuMss"
+                      username="@Abiliffy"
+                      url="https://github.com/Abiliffy"
                       createStar={createStar}
                     />
                     <SocialLink
                       icon={<XIcon className="h-5 w-5" />}
                       title="𝕏"
-                      username="@_1udn_1udn"
-                      url="https://x.com/_1udn_1udn"
+                      username=""
+                      url=""
                       createStar={createStar}
                     />
                     <SocialLink
                       icon={<Globe className="h-5 w-5" />}
                       title="Qiita"
-                      username="LiThIuMss"
+                      username="@LiThIuMss"
                       url="https://qiita.com/LiThIuMs"
                       createStar={createStar}
                     />
                     <SocialLink
                       icon={<Globe className="h-5 w-5" />}
-                      title="Zenn"
-                      username="LiThIuMs"
-                      url="https://zenn.dev/lithlums"
+                      title="compass"
+                      username="@zo____n"
+                      url="https://connpass.com/user/zo____n/"
                       createStar={createStar}
                     />
                   </div>
@@ -169,7 +163,9 @@ export default function HomePage() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center text-shadow-monochrome-dark-sm">
             <Star className="h-5 w-5 mr-2" /> My Gallery
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+          {/* 上3枚 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
             {[
               "/images/gallery1.jpg",
               "/images/gallery2.jpg",
@@ -188,7 +184,33 @@ export default function HomePage() {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-3">
-                    <h3 className="text-sm font-medium text-gray-900">🖤🖤</h3>
+                    <h3 className="text-sm font-medium text-gray-900">🍤</h3>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* 下2枚（中央寄せ） */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center max-w-3xl mx-auto">
+            {[
+              "/images/gallery4.jpg",
+              "/images/gallery6.jpg",
+            ].map((src, index) => (
+              <Card
+                key={index + 3}
+                className="border-0 overflow-hidden bg-transparent backdrop-blur-sm hover:shadow-monochrome-dark-sm transition-all duration-300 hover:-translate-y-1"
+              >
+                <CardContent className="p-0">
+                  <Image
+                    src={src}
+                    width={300}
+                    height={200}
+                    alt={`Gallery image ${index + 4}`}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-3">
+                    <h3 className="text-sm font-medium text-gray-900">🍤</h3>
                   </div>
                 </CardContent>
               </Card>
@@ -207,22 +229,26 @@ export default function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
                 {/* ▶ 曲1 */}
                 <iframe
-                  id="AmazonMusicEmbedB0CWTQWG5R"
-                  src="https://music.amazon.co.jp/embed/B0CWTQWG5R/?id=HZRgq7gDmk&marketplaceId=A1VC38T7YXB528&musicTerritory=JP"
+                  data-testid="embed-iframe"
+                  style={{ borderRadius: "12px" }}
+                  src="https://open.spotify.com/embed/track/0CaeTYtL57FfMSbGrII1tM?utm_source=generator"
                   width="100%"
                   height="352"
-                  className="w-full"
-                  style={{ borderRadius: "20px" }}
-                ></iframe>
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
                 {/* ▶ 曲2 */}
                 <iframe
-                  id='AmazonMusicEmbedB09CLP2VLV'
-                  src='https://music.amazon.co.jp/embed/B09CLP2VLV/?id=3beX48NXOv&marketplaceId=A1VC38T7YXB528&musicTerritory=JP'
-                  width='100%'
-                  height='352'
-                  className="w-full"
-                  style={{ borderRadius: "20px" }}
-                ></iframe>
+                  data-testid="embed-iframe"
+                  style={{ borderRadius: "12px" }}
+                  src="https://open.spotify.com/embed/track/1KAS3f2o4mCQ4WltOQ0cC7?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
             </CardContent>
           </Card>
