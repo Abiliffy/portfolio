@@ -81,6 +81,10 @@ export default function HomePage() {
             height={128}
             alt="Profile"
             className="w-full h-full object-cover"
+            // 画像最適化をオフにして、そのまま配信
+            unoptimized
+            // ファーストビューなので優先ロード
+            priority
           />
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center tracking-wide text-shadow-monochrome-dark">
@@ -182,6 +186,11 @@ export default function HomePage() {
                     height={200}
                     alt={`Gallery image ${index + 1}`}
                     className="w-full h-48 object-cover"
+                    unoptimized
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw,
+                           (max-width: 1024px) 50vw,
+                           33vw"
                   />
                   <div className="p-3">
                     <h3 className="text-sm font-medium text-gray-900">🍤</h3>
@@ -208,6 +217,11 @@ export default function HomePage() {
                     height={200}
                     alt={`Gallery image ${index + 4}`}
                     className="w-full h-48 object-cover"
+                    unoptimized
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw,
+                           (max-width: 1024px) 50vw,
+                           33vw"
                   />
                   <div className="p-3">
                     <h3 className="text-sm font-medium text-gray-900">🍤</h3>
@@ -216,42 +230,6 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-        </section>
-
-        {/* Music section */}
-        <section id="music" className="mb-12">
-          <Card className="border-0 bg-gray-200/80 backdrop-blur-sm shadow-monochrome-dark-sm">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center justify-start text-shadow-monochrome-dark-sm">
-                <Music className="h-5 w-5 mr-2" />
-                Current Playlist
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
-                {/* ▶ 曲1 */}
-                <iframe
-                  data-testid="embed-iframe"
-                  style={{ borderRadius: "12px" }}
-                  src="https://open.spotify.com/embed/track/0CaeTYtL57FfMSbGrII1tM?utm_source=generator"
-                  width="100%"
-                  height="352"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-                {/* ▶ 曲2 */}
-                <iframe
-                  data-testid="embed-iframe"
-                  style={{ borderRadius: "12px" }}
-                  src="https://open.spotify.com/embed/track/1KAS3f2o4mCQ4WltOQ0cC7?utm_source=generator"
-                  width="100%"
-                  height="352"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            </CardContent>
-          </Card>
         </section>
 
       </main>
