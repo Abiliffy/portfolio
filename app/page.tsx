@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState } from "react"
 import { Heart, Star, Cloud, Moon, Music, Sparkles, Github, Globe } from "lucide-react"
 
@@ -28,19 +27,21 @@ function XIcon({ className = "h-6 w-6" }) {
 }
 
 export default function HomePage() {
-  const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; opacity: number; rotation: number; color: string }[]>([])
+  const [stars, setStars] = useState<
+    { id: number; x: number; y: number; size: number; opacity: number; rotation: number; color: string }[]
+  >([])
 
-  const createStar = (e) => {
+  const createStar = (e: React.MouseEvent) => {
     const x = e.clientX
     const y = e.clientY
     const newStar = {
       id: Date.now(),
       x,
       y,
-      size: Math.random() * 10 + 5, // Random size between 5-15px
-      opacity: Math.random() * 0.5 + 0.5, // Random opacity between 0.5-1
-      rotation: Math.random() * 360, // Random rotation
-      color: Math.random() > 0.5 ? "gold" : "white", // Randomly gold or white
+      size: Math.random() * 10 + 5,
+      opacity: Math.random() * 0.5 + 0.5,
+      rotation: Math.random() * 360,
+      color: Math.random() > 0.5 ? "gold" : "white",
     }
     setStars((prev) => [...prev, newStar])
     setTimeout(() => {
@@ -75,16 +76,12 @@ export default function HomePage() {
       {/* Header */}
       <header className="relative z-10 py-6 sm:py-8 px-4 flex flex-col items-center">
         <div className="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-r from-gray-800 to-black shadow-monochrome-dark mb-4 border-4 border-gray-200">
-          <Image
+          <img
             src="/images/profile.jpg"
             width={128}
             height={128}
             alt="Profile"
             className="w-full h-full object-cover"
-            // 画像最適化をオフにして、そのまま配信
-            unoptimized
-            // ファーストビューなので優先ロード
-            priority
           />
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center tracking-wide text-shadow-monochrome-dark">
@@ -119,9 +116,7 @@ export default function HomePage() {
                 <Sparkles className="h-5 w-5 mr-2" /> About Me
               </h2>
               <div className="space-y-4 text-gray-800">
-                <p>
-                  backend 🍤
-                </p>
+                <p>backend 🍤</p>
                 <div className="pt-4 border-t border-gray-400">
                   <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-3 text-shadow-monochrome-dark-sm">
                     Find me online ✧
@@ -170,27 +165,19 @@ export default function HomePage() {
 
           {/* 上3枚 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-            {[
-              "/images/gallery1.jpg",
-              "/images/gallery2.jpg",
-              "/images/gallery3.jpg",
-            ].map((src, index) => (
+            {["/images/gallery1.jpg", "/images/gallery2.jpg", "/images/gallery3.jpg"].map((src, index) => (
               <Card
                 key={index}
                 className="border-0 overflow-hidden bg-transparent backdrop-blur-sm hover:shadow-monochrome-dark-sm transition-all duration-300 hover:-translate-y-1"
               >
                 <CardContent className="p-0">
-                  <Image
+                  <img
                     src={src}
                     width={300}
                     height={200}
                     alt={`Gallery image ${index + 1}`}
                     className="w-full h-48 object-cover"
-                    unoptimized
                     loading="lazy"
-                    sizes="(max-width: 768px) 100vw,
-                           (max-width: 1024px) 50vw,
-                           33vw"
                   />
                   <div className="p-3">
                     <h3 className="text-sm font-medium text-gray-900">🍤</h3>
@@ -202,26 +189,19 @@ export default function HomePage() {
 
           {/* 下2枚（中央寄せ） */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center max-w-3xl mx-auto">
-            {[
-              "/images/gallery4.jpg",
-              "/images/gallery6.jpg",
-            ].map((src, index) => (
+            {["/images/gallery4.jpg", "/images/gallery6.jpg"].map((src, index) => (
               <Card
                 key={index + 3}
                 className="border-0 overflow-hidden bg-transparent backdrop-blur-sm hover:shadow-monochrome-dark-sm transition-all duration-300 hover:-translate-y-1"
               >
                 <CardContent className="p-0">
-                  <Image
+                  <img
                     src={src}
                     width={300}
                     height={200}
                     alt={`Gallery image ${index + 4}`}
                     className="w-full h-48 object-cover"
-                    unoptimized
                     loading="lazy"
-                    sizes="(max-width: 768px) 100vw,
-                           (max-width: 1024px) 50vw,
-                           33vw"
                   />
                   <div className="p-3">
                     <h3 className="text-sm font-medium text-gray-900">🍤</h3>
@@ -231,7 +211,6 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-
       </main>
 
       {/* Footer */}
@@ -249,19 +228,11 @@ export default function HomePage() {
         <p className="text-sm opacity-70">✧ Created with v0.dev ✧</p>
         <p className="text-xs opacity-50 mt-1">© {new Date().getFullYear()} LiThIuMss HomePage</p>
         <p className="text-[10px] text-gray-400 mt-2">
-          <a
-            target="_blank"
-            href="https://icons8.com/icon/FpHjkMD6ucqh/shooting-stars"
-            className="underline hover:text-gray-500"
-          >
+          <a target="_blank" href="https://icons8.com/icon/FpHjkMD6ucqh/shooting-stars" className="underline hover:text-gray-500">
             流れ星
           </a>{" "}
           アイコン by{" "}
-          <a
-            target="_blank"
-            href="https://icons8.com"
-            className="underline hover:text-gray-500"
-          >
+          <a target="_blank" href="https://icons8.com" className="underline hover:text-gray-500">
             Icons8
           </a>
         </p>
@@ -270,7 +241,7 @@ export default function HomePage() {
   )
 }
 
-function NavButton({ icon, label, createStar }) {
+function NavButton({ icon, label, createStar }: { icon: React.ReactNode; label: string; createStar: (e: React.MouseEvent) => void }) {
   return (
     <Button
       variant="ghost"
@@ -285,7 +256,7 @@ function NavButton({ icon, label, createStar }) {
   )
 }
 
-function SocialButton({ icon, createStar }) {
+function SocialButton({ icon, createStar }: { icon: React.ReactNode; createStar: (e: React.MouseEvent) => void }) {
   return (
     <Button
       variant="ghost"
@@ -298,7 +269,19 @@ function SocialButton({ icon, createStar }) {
   )
 }
 
-function SocialLink({ icon, title, username, url, createStar }) {
+function SocialLink({
+  icon,
+  title,
+  username,
+  url,
+  createStar,
+}: {
+  icon: React.ReactNode
+  title: string
+  username: string
+  url: string
+  createStar: (e: React.MouseEvent) => void
+}) {
   return (
     <a
       href={url}
