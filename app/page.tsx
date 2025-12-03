@@ -210,6 +210,42 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
+          </section>
+          
+          {/* Music section */}
+        <section id="music" className="mb-12">
+          <Card className="border-0 bg-gray-200/80 backdrop-blur-sm shadow-monochrome-dark-sm">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center justify-start text-shadow-monochrome-dark-sm">
+                <Music className="h-5 w-5 mr-2" />
+                Current Playlist
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+                {/* ▶ 曲1 */}
+                <iframe
+                  data-testid="embed-iframe"
+                  style={{ borderRadius: "12px" }}
+                  src="https://open.spotify.com/embed/track/0CaeTYtL57FfMSbGrII1tM?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+                {/* ▶ 曲2 */}
+                <iframe
+                  data-testid="embed-iframe"
+                  style={{ borderRadius: "12px" }}
+                  src="https://open.spotify.com/embed/track/1KAS3f2o4mCQ4WltOQ0cC7?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </CardContent>
+          </Card>
         </section>
       </main>
 
@@ -218,10 +254,10 @@ export default function HomePage() {
         <div className="flex justify-center space-x-4 mb-4">
           <SocialButton icon={<Heart />} createStar={createStar} />
           <SocialButton icon={<Star />} createStar={createStar} />
-          <a href="https://github.com/LiThIuMss" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Abiliffy" target="_blank" rel="noopener noreferrer">
             <SocialButton icon={<Github />} createStar={createStar} />
           </a>
-          <a href="https://x.com/_1udn_1udn" target="_blank" rel="noopener noreferrer">
+          <a href="" target="_blank" rel="noopener noreferrer">
             <SocialButton icon={<XIcon />} createStar={createStar} />
           </a>
         </div>
